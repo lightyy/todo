@@ -6,15 +6,18 @@ function getWeather(lat, lng) {
   //api 데이터 가져오기
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&lang={en}&units=metric`
-  ).then(function(response){
-    //   console.log(response.json());
-    return response.json();
-  }).then(function(json){
-    //console.log(json);
-    const temperature = Math.round(json.main.temp);
-    const place = json.name;
-    weather.innerText = `온도 : ${temperature} @ 지역 : ${place}`;
-  });
+  )
+    .then(function (response) {
+      //   console.log(response.json());
+      return response.json();
+    })
+    .then(function (json) {
+      //console.log(json);
+      const temperature = Math.round(json.main.temp);
+      const place = json.name;
+      weather.innerText = `온도 : ${temperature}℃
+    현재위치 : ${place}`;
+    });
   //then() : data가 들어온후 ()함수 호출
   //끝나길 기다리는 함수
 }

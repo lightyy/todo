@@ -10,6 +10,24 @@
   function saveTask() {
     localStorage.setItem("PENDING", JSON.stringify(pendingArray));
     localStorage.setItem("FINISHED", JSON.stringify(finishedArray));
+    hideAndShow();
+  }
+
+  function hideAndShow() {
+    if (pendingArray.length === 0) {
+      pendingUl.parentNode.classList.add("hide");
+      pendingUl.parentNode.classList.remove("showing");
+    } else {
+      pendingUl.parentNode.classList.add("showing");
+      pendingUl.parentNode.classList.remove("hide");
+    }
+    if (finishedArray.length === 0) {
+      finishedUl.parentNode.classList.add("hide");
+      finishedUl.parentNode.classList.remove("showing");
+    } else {
+      finishedUl.parentNode.classList.add("showing");
+      finishedUl.parentNode.classList.remove("hide");
+    }
   }
 
   function delTask(event) {
@@ -34,9 +52,10 @@
   function paintFinishiTask(text) {
     const newId = finishedArray.length + 1;
     const li = document.createElement("li");
+    li.className = "li";
     li.id = newId;
     const span = document.createElement("span");
-    span.textContent = text;
+    span.textContent = `${text}`;
     const delBtn = document.createElement("button");
     delBtn.textContent = "❌";
     delBtn.addEventListener("click", delTask);
@@ -51,10 +70,9 @@
       finishedArray = cleanTask;
       saveTask();
     });
-
-    li.appendChild(span);
-    li.appendChild(delBtn);
     li.appendChild(rewindBtn);
+    li.appendChild(delBtn);
+    li.appendChild(span);
     finishedUl.appendChild(li);
     input.value = "";
     taskObj = {
@@ -68,9 +86,10 @@
   function paintTask(text) {
     const newId = pendingArray.length + 1;
     const li = document.createElement("li");
+    li.className = "li";
     li.id = newId;
     const span = document.createElement("span");
-    span.textContent = text;
+    span.textContent = `${text}`;
     const delBtn = document.createElement("button");
     delBtn.textContent = "❌";
     delBtn.addEventListener("click", delTask);
@@ -85,9 +104,9 @@
       pendingArray = cleanTask;
       saveTask();
     });
-    li.appendChild(span);
-    li.appendChild(delBtn);
     li.appendChild(finishBtn);
+    li.appendChild(delBtn);
+    li.appendChild(span);
     pendingUl.appendChild(li);
     input.value = "";
     taskObj = {
@@ -126,7 +145,6 @@
     loadTask();
     form.addEventListener("submit", handleSubmit);
   }
-
   init();
 })();
 

@@ -8,20 +8,26 @@
   </head>
   <body>
     <div class="js-clock">
-      <h1 class="js-title">00:00</h1>
+      <h2 class="js-title">00:00</h2>
     </div>
     <form class="js-form form">
       <input type="text" placeholder="What is your name?" />
     </form>
-    <h4 class="js-greetings greetings"></h4>
+    <h3 class="js-greetings greetings"></h3>
     <form class="toDoForm">
-      <input type="text" placeholder="Add task" />
+      <input type="text" placeholder="Add ToDo" />
     </form>
-    <h2>TODO</h2>
-    <ul class="pendingUl"></ul>
-    <h2>Finished</h2>
-    <ul class="finishedUl"></ul>
-    <span class="js-weather"></span>
+    <div class="toDoList">
+      <div class="hide">
+        <h1 clas="toDoTItle">😉 ToDo-List</h1>
+        <ul class="pendingUl"></ul>
+      </div>
+      <div class="hide">
+        <h1>🏆 Finished-List</h1>
+        <ul class="finishedUl"></ul>
+      </div>
+    </div>
+    <span class="js-weather weather"></span>
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>

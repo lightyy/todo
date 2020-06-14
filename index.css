@@ -1,36 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+html {
+  height: 100%;
+}
+
 body {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
-  color: black;
-  transition: color 0.5s ease-in;
+  margin: 0;
 }
 
+h2 {
+  color: white;
+  transition: color 0.5s ease-in;
+  font-size: 100px;
+  margin: 0;
+  letter-spacing: 8px;
+}
+
+input {
+  text-align: center;
+  letter-spacing: 1px;
+  width: 300px;
+  height: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
 .form,
-.greetings {
+.greetings,
+.hide {
   display: none;
+  color: white;
+  font-size: 40px;
 }
 
 .showing {
   display: block;
 }
 
-@keyframes fadein{
-  from{
+@keyframes fadein {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
 }
 
-.bgImage{
-  position : absolute;
-  top : 0;
-  left : 0;
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
   animation: fadein 1s linear;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.li {
+  width: 300px;
+  list-style: none;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.toDoList {
+  color: white;
+}
+
+.weather {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+button{
+  border-radius: 15px;
+  border: none;
+  margin-right: 4px;
+}
+
+button:nth-child(2n) {
+  margin-right: 14px;
 }
